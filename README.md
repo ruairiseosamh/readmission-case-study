@@ -142,11 +142,3 @@ Below is an example view of the top drivers measured via permutation importance 
 ## Additional notes
 - For GCS access locally, place your service account JSON at `secrets/sa.json` and grant it read to the model object.
 - `GOOGLE_APPLICATION_CREDENTIALS` is passed into the container for the GCS client.
-
-## Refresh the feature-importance chart
-- After training finishes, the pipeline saves `artifacts/feature_importance.png` and `artifacts/feature_importance.csv`.
-- To publish in the README, copy the image into `docs/feature_importance.png` (tracked in git):
-
-    ```bash
-    cp artifacts/feature_importance.png docs/
-    ```
