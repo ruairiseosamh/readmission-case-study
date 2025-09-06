@@ -6,6 +6,9 @@ from typing import List, Tuple, Optional
 
 import joblib
 import pandas as pd
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 
 def _detect_label_column(df: pd.DataFrame, explicit: Optional[str] = None) -> str:
@@ -134,6 +137,7 @@ def build_pipeline():
 def train_and_save(data_dir: str = 'data', artifacts_dir: str = 'artifacts'):
     from sklearn.pipeline import Pipeline
     from sklearn.metrics import roc_auc_score, average_precision_score
+    from sklearn.inspection import permutation_importance
 
     Path(artifacts_dir).mkdir(parents=True, exist_ok=True)
     claims = pd.read_csv(Path(data_dir) / 'claims.csv')
@@ -163,6 +167,31 @@ def train_and_save(data_dir: str = 'data', artifacts_dir: str = 'artifacts'):
     }
     (Path(artifacts_dir) / 'model_card.json').write_text(json.dumps(model_card, indent=2))
     print(f"Saved model to {artifacts_dir}/model.joblib")
+
+    # Compute permutation importance on validation and save a chart
+    try:
+        scorer = 'average_precision'
+        r = permutation_importance(pipe, X_va, y_va, scoring=scorer, n_repeats=10, random_state=42, n_jobs=1)
+        imp = pd.DataFrame({
+            'feature': X_va.columns,
+            'importance_mean': r.importances_mean,
+            'importance_std': r.importances_std,
+        }).sort_values('importance_mean', ascending=False)
+        top = imp.head(15)
+        plt.figure(figsize=(9, 6))
+        plt.barh(range(len(top)), top['importance_mean'][::-1], xerr=top['importance_std'][::-1], color='#3b82f6', alpha=0.8)
+        plt.yticks(range(len(top)), top['feature'][::-1])
+        plt.xlabel('Permutation importance (AP drop)')
+        plt.title('Top features by permutation importance')
+        plt.tight_layout()
+        out_path = Path(artifacts_dir) / 'feature_importance.png'
+        plt.savefig(out_path, dpi=200)
+        plt.close()
+        print(f"Saved feature importance chart to {out_path}")
+        # Also save CSV for reference
+        imp.to_csv(Path(artifacts_dir) / 'feature_importance.csv', index=False)
+    except Exception as e:
+        print(f"Warning: failed to compute/save permutation importance chart: {e}")
 
 
 if __name__ == '__main__':
