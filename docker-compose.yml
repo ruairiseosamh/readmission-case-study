@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    image: case-study:local
+    env_file:
+      - .env
+    environment:
+      # Ensure PORT and MODEL_PATH are set via .env; default PORT=8000
+      - PORT=${PORT:-8000}
+      - MODEL_PATH=${MODEL_PATH}
+      - GOOGLE_APPLICATION_CREDENTIALS=/secrets/sa.json
+    volumes:
+      - ./artifacts:/app/artifacts
+      - ./secrets/sa.json:/secrets/sa.json:ro
+    ports:
+      - "${PORT:-8000}:8000"
+    command: ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

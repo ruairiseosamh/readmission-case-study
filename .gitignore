@@ -1,0 +1,31 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Environments
+.venv/
+.env
+.env.*
+
+# OS/editor
+.DS_Store
+.vscode/
+.ipynb_checkpoints/
+
+# Artifacts & data secrets
+artifacts/
+*.joblib
+secrets/
+
+# Local data (keep small samples only)
+data/*.csv
+!data/README.md
+
+# Build
+build/
+dist/
+

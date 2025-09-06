@@ -1,0 +1,51 @@
+patient_id,age,gender,ethnicity,smoker,bmi,zip,insurance_type
+1001,21.0,Female,?,No,,30301,Private
+1002,40.0,M,African American,Yes,16.0,75001,Private
+1003,79.0,F,Asian,Yes,19.4,,Medicaid
+1004,79.0,Male,African American,Yes,19.7,,Medicaid
+1005,41.0,M,African American,NULL,24.2,30301,Medicaid
+1006,57.0,Female,Caucasian,NULL,17.3,75001,Medicare
+1007,68.0,F,African American,No,20.7,75001,Medicare
+1008,34.0,M,?,NULL,20.7,10001,Medicare
+1009,40.0,Female,African American,Yes,24.7,75001,Private
+1010,41.0,Female,Caucasian,No,31.1,75001,Medicaid
+1011,22.0,Female,?,Yes,33.2,75001,Private
+1012,78.0,M,Hispanic,Yes,,94110,Medicare
+1013,72.0,M,African American,NULL,20.7,10001,Medicaid
+1014,22.0,M,Caucasian,No,29.8,,Private
+1015,77.0,Male,Hispanic,NULL,30.8,30301,Medicaid
+1016,80.0,M,Hispanic,NULL,30.8,,Private
+1017,83.0,M,Asian,No,23.0,10001,Medicaid
+1018,77.0,M,?,Yes,23.0,30301,Medicare
+1019,72.0,Male,African American,Yes,24.2,10001,Medicare
+1020,78.0,M,Caucasian,No,32.3,75001,Medicaid
+1021,71.0,Female,Asian,Yes,20.7,30301,Private
+1022,68.0,M,?,No,20.7,75001,Medicare
+1023,79.0,Female,Asian,No,24.2,,Medicare
+1024,22.0,Female,?,NULL,24.7,,Medicare
+1025,57.0,Female,?,No,,30301,Medicaid
+1026,41.0,Male,African American,NULL,24.7,30301,Medicaid
+1027,79.0,Male,?,Yes,16.0,10001,Private
+1028,34.0,Male,Asian,Yes,31.1,10001,Private
+1029,83.0,M,?,Yes,35.9,75001,Private
+1030,52.0,Female,African American,Yes,30.8,30301,Medicaid
+1031,80.0,Male,African American,NULL,28.4,,Medicaid
+1032,77.0,Male,Asian,Yes,35.9,10001,Private
+1033,41.0,M,Hispanic,No,24.7,10001,Private
+1034,80.0,Male,Hispanic,No,24.2,,Medicaid
+1035,71.0,M,?,No,20.7,10001,Private
+1036,43.0,F,Caucasian,NULL,24.2,75001,Medicare
+1037,21.0,Male,?,Yes,19.4,30301,Medicaid
+1038,80.0,F,Asian,Yes,15.4,,Private
+1039,77.0,M,Asian,Yes,19.4,30301,Medicaid
+1040,57.0,Female,Asian,NULL,33.2,10001,Medicare
+1041,71.0,Male,Asian,No,24.2,10001,Medicaid
+1042,21.0,M,Asian,No,20.7,,Medicaid
+1043,80.0,Female,African American,Yes,23.0,75001,Medicaid
+1044,83.0,Female,Hispanic,No,30.8,94110,Medicaid
+1045,40.0,F,Asian,No,,,Medicare
+1046,79.0,M,Caucasian,NULL,30.8,94110,Medicaid
+1047,41.0,Female,Caucasian,NULL,,94110,Medicaid
+1048,83.0,Male,Caucasian,NULL,15.4,75001,Private
+1049,41.0,Male,Caucasian,NULL,38.4,94110,Medicaid
+1050,78.0,F,African American,Yes,20.7,94110,Private
