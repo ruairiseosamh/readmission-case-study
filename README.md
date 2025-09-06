@@ -7,7 +7,7 @@ This repo builds and serves a 30‑day hospital readmission risk model from clai
 - A FastAPI service for real‑time scoring, plus Docker and Cloud Run configs for easy deployment.
 
 ### Most important features (validation permutation importance)
-Below is an example view of the top drivers measured via permutation importance (Average Precision drop) on the validation split. Regenerate it with the training pipeline and keep it in `docs/` so it renders on GitHub.
+Below is an example view of the top drivers measured via permutation importance (Average Precision drop) on the validation split.
 
 ![Top features by permutation importance](docs/feature_importance.png)
 
@@ -72,10 +72,6 @@ Deploy to Google Cloud Run
 Tips
 - If you prefer baking the model into the image, uncomment the RUN python -m readmission.train in the Dockerfile (and ensure data access during build).
 - Cloud Run auto-injects PORT; the Dockerfile respects it. Set min/max instances and concurrency to control cost/latency.
-
-Generate/refresh the feature-importance chart
-- After training finishes, the pipeline saves `artifacts/feature_importance.png` and `artifacts/feature_importance.csv`.
-- To publish in the README, copy the image into `docs/feature_importance.png` (tracked in git), e.g. `cp artifacts/feature_importance.png docs/`.
 
 Mirror Cloud Run locally (docker-compose)
 1) Copy env file and edit as needed
